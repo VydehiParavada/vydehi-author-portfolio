@@ -19,7 +19,6 @@ nav {
   display: flex;
   justify-content: center;
   background: #0b1f3a;
-  z-index: 1000;
 }
 nav a {
   padding: 14px 20px;
@@ -28,7 +27,6 @@ nav a {
 }
 nav a:hover {
   background: #1f3f7a;
-  border-radius: 6px;
 }
 
 /* HERO */
@@ -46,18 +44,9 @@ nav a:hover {
   background: white;
   padding: 10px;
   border-radius: 20px;
-  animation: float 4s ease-in-out infinite;
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.hero h1 {
-  margin: 10px 0;
-  font-size: 46px;
-}
+.hero h1 { font-size: 46px; margin: 10px 0; }
 
 .tagline {
   color: #cfe0ff;
@@ -84,8 +73,8 @@ section {
   background: white;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
   text-align: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
   transition: 0.3s;
 }
 
@@ -98,7 +87,6 @@ section {
   transform: translateY(-8px);
 }
 
-/* IMAGE FIX */
 .card img {
   width: 100%;
   height: 320px;
@@ -107,30 +95,36 @@ section {
   padding: 10px;
 }
 
-/* TEXT */
-.card h3 {
-  margin: 10px 0 5px;
-}
-
-.card p {
+/* LINKS */
+.link-group {
+  padding: 10px 15px 20px;
+  text-align: left;
   font-size: 14px;
-  padding: 0 12px 10px;
-  opacity: 0.85;
 }
 
-/* BUTTON */
-.button {
-  display: inline-block;
-  margin-bottom: 12px;
-  padding: 10px 14px;
-  background: #2f5cff;
-  color: white;
-  border-radius: 6px;
+.link-group a {
+  display: block;
+  margin: 5px 0;
+  color: #2f5cff;
   text-decoration: none;
 }
-.button:hover {
-  background: #ffd27a;
-  color: black;
+
+.link-group a:hover {
+  text-decoration: underline;
+}
+
+/* FEATURED WEBSITE */
+.featured {
+  background: #ffffff;
+  border-left: 5px solid #2f5cff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.featured a {
+  color: #2f5cff;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -140,10 +134,7 @@ section {
 <!-- HERO -->
 <div class="hero">
   <img src="Logo.jpeg">
-
   <h1>Vydehi Paravada</h1>
-
-  <!-- UPDATED TAGLINE (NO DANCER) -->
   <p class="tagline">Stories in words. Stories in movement.</p>
 </div>
 
@@ -151,9 +142,19 @@ section {
 <section class="light">
   <h2>About Me</h2>
   <p>
-    I am an author and storyteller who expresses creativity through words and imagination.
-    My writing reflects emotions, identity, and human experiences.
+    I am an author and storyteller who expresses creativity through writing and imagination.
+    My work reflects emotions, identity, and human experiences across cultures and life journeys.
   </p>
+</section>
+
+<!-- FEATURED WEBSITE -->
+<section class="light">
+  <div class="featured">
+    🌟 Featured Recognition:  
+    <a href="https://theindiasaga.com/saga-corner/lifetsyle/presstone-agency-presents-top-10-most-talented-indian-writers-you-need-to-know/" target="_blank">
+      Top 10 Most Talented Indian Writers Feature
+    </a>
+  </div>
 </section>
 
 <!-- BOOKS -->
@@ -162,36 +163,50 @@ section {
 
   <div class="grid">
 
+    <!-- BOOK 1 -->
     <div class="card">
       <img src="Left Untold.jpeg">
       <h3>Left Untold</h3>
       <p>
-        A deeply emotional narrative exploring silence, unspoken feelings,
-        and the hidden layers of human relationships.
+        A deeply emotional narrative exploring silence, heartbreak, and the unspoken layers of human relationships.
       </p>
-      <a class="button" href="https://www.amazon.com" target="_blank">View Book</a>
+
+      <div class="link-group">
+        <b>Amazon:</b>
+        <a href="https://www.amazon.in/dp/B08LZMKK3M" target="_blank">India Amazon Link</a>
+        <a href="https://www.amazon.com/dp/1644296292" target="_blank">US Amazon Link</a>
+
+        <b>Flipkart:</b>
+        <a href="https://www.flipkart.com/destiny-dreams-in-between/p/itmad287d30f650b" target="_blank">Flipkart Link</a>
+      </div>
     </div>
 
+    <!-- BOOK 2 -->
     <div class="card">
       <img src="Destiny and Dreams- In between We.jpeg">
       <h3>Destiny and Dreams - Inbetween We</h3>
       <p>
-        A reflective journey about destiny, connection, and the invisible threads
-        that bind people across time and emotion.
+        A poetic reflection of destiny, connection, and invisible bonds that shape human lives.
       </p>
-      <a class="button" href="https://www.amazon.com" target="_blank">View Book</a>
+
+      <div class="link-group">
+        <b>Amazon:</b>
+        <a href="http://amazon.in/dp/B07JZ92TRS" target="_blank">India Amazon Link</a>
+        <a href="http://itunes.apple.com/us/book/id1440740127" target="_blank">Apple Books</a>
+
+        <b>Flipkart:</b>
+        <a href="https://www.flipkart.com/destiny-dreams-in-between/p/itmad287d30f650b" target="_blank">Flipkart Link</a>
+      </div>
     </div>
 
   </div>
 </section>
 
-<!-- AWARDS (REVERSED ORDER) -->
+<!-- AWARDS -->
 <section class="light">
   <h2>Awards & Recognition</h2>
 
   <div class="grid">
-
-    <!-- REVERSED: LAST FIRST -->
 
     <div class="card"><img src="Tagore award.jpeg"><h3>Tagore Award</h3></div>
     <div class="card"><img src="Sahityakosh Samman Awardee.jpeg"><h3>Sahityakosh Samman</h3></div>
