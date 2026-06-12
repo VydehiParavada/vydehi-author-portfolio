@@ -6,167 +6,158 @@
 <title>Vydehi Portfolio</title>
 
 <style>
-/* =====================
-   BASE
-===================== */
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
-  background: #0a1222;
-  color: #e6e9f0;
-  scroll-behavior: smooth;
+  background: #070f1e;
+  color: #e8ecf5;
+  overflow-x: hidden;
 }
 
-/* =====================
-   HEADER (PREMIUM HERO)
-===================== */
-header {
-  background: linear-gradient(135deg, #0b1f3a, #081428);
+/* ================= HERO ================= */
+.hero {
   text-align: center;
-  padding: 80px 20px;
+  padding: 90px 20px;
+  background: radial-gradient(circle at top, #132a4a, #070f1e);
   position: relative;
-  overflow: hidden;
 }
 
-header::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 60%);
-  animation: glowMove 8s infinite linear;
-}
-
-@keyframes glowMove {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-header h1 {
-  font-size: 48px;
-  margin: 0;
-  letter-spacing: 1px;
+.hero img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #7aa7ff;
+  margin-bottom: 15px;
   animation: fadeDown 1s ease;
 }
 
-header p {
-  font-size: 18px;
-  opacity: 0.8;
-  margin-top: 10px;
-  animation: fadeDown 1.3s ease;
+.hero h1 {
+  font-size: 48px;
+  margin: 0;
+  position: relative;
 }
 
-/* =====================
-   NAVIGATION (STICKY TABS)
-===================== */
+.hero h1::before {
+  content: "VYDEHI PARAVADA";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  opacity: 0.08;
+  white-space: nowrap;
+  z-index: -1;
+}
+
+.hero p {
+  margin-top: 10px;
+  color: #9db7ff;
+}
+
+/* ================= NAV ================= */
 nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
   display: flex;
   justify-content: center;
   background: rgba(10, 18, 34, 0.9);
+  position: sticky;
+  top: 0;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 1000;
+  flex-wrap: wrap;
 }
 
 nav a {
-  padding: 14px 22px;
+  padding: 14px 20px;
   text-decoration: none;
-  color: #cfd8ff;
-  font-weight: 500;
+  color: #cdd9ff;
   transition: 0.3s;
 }
 
 nav a:hover {
-  color: #ffffff;
-  background: rgba(255,255,255,0.08);
+  color: white;
+  background: rgba(122,167,255,0.15);
   border-radius: 8px;
 }
 
-/* =====================
-   SECTIONS
-===================== */
+/* ================= SECTIONS ================= */
 section {
   padding: 70px 12%;
+  animation: fadeUp 1s ease forwards;
   opacity: 0;
   transform: translateY(40px);
-  animation: fadeUp 1s forwards;
 }
-
-section:nth-child(2) { animation-delay: 0.2s; }
-section:nth-child(3) { animation-delay: 0.4s; }
-section:nth-child(4) { animation-delay: 0.6s; }
-section:nth-child(5) { animation-delay: 0.8s; }
 
 h2 {
-  color: #9bbcff;
-  font-size: 26px;
+  color: #7aa7ff;
   margin-bottom: 25px;
-  letter-spacing: 0.5px;
+  position: relative;
 }
 
-/* =====================
-   GRID + CARDS
-===================== */
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin-top: 8px;
+  background: linear-gradient(90deg, #7aa7ff, #ffd27a);
+  border-radius: 2px;
+}
+
+/* ================= GRID ================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 22px;
 }
 
+/* ================= CARD ================= */
 .card {
   background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(122,167,255,0.2);
   border-radius: 14px;
   overflow: hidden;
   text-align: center;
-  transition: 0.4s ease;
-  backdrop-filter: blur(10px);
+  transition: 0.4s;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  border-color: rgba(155,188,255,0.4);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  border-color: #7aa7ff;
 }
 
 .card img {
   width: 100%;
   height: 240px;
   object-fit: cover;
-  transition: 0.4s;
-}
-
-.card:hover img {
-  transform: scale(1.05);
 }
 
 .card h3 {
-  padding: 12px;
-  font-size: 16px;
-  color: #e6e9f0;
+  padding: 10px;
 }
 
-/* =====================
-   TEXT
-===================== */
-p {
-  line-height: 1.7;
-  color: #cfd8ff;
-  font-size: 16px;
+/* ================= BUTTON ================= */
+.button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: #7aa7ff;
+  color: #0a1222;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-/* =====================
-   ANIMATIONS
-===================== */
+.button:hover {
+  background: #ffd27a;
+}
+
+/* ================= ANIMATION ================= */
 @keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeDown {
@@ -174,16 +165,14 @@ p {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* =====================
-   RESPONSIVE
-===================== */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   section {
     padding: 50px 8%;
   }
 
-  header h1 {
-    font-size: 34px;
+  .hero h1 {
+    font-size: 32px;
   }
 }
 </style>
@@ -191,56 +180,55 @@ p {
 
 <body>
 
-<header>
+<!-- HERO -->
+<div class="hero">
+  <img src="images/profile.jpeg" alt="Profile Image">
   <h1>Vydehi Paravada</h1>
   <p>Author | Storyteller | Dancer</p>
-</header>
+</div>
 
 <!-- NAV -->
 <nav>
-  <a href="#about">About</a>
-  <a href="#books">Books</a>
-  <a href="#identity">Identity</a>
-  <a href="#awards">Awards</a>
+  <a href="#books">Featured Books</a>
+  <a href="#booklinks">Book Links</a>
+  <a href="#awards">Awards & Recognition</a>
 </nav>
 
-<!-- ABOUT -->
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    I am an author, storyteller, and dancer who blends creativity, emotion, and expression.
-    My work reflects journeys of identity, imagination, and human connection through literature
-    and performing arts.
-  </p>
-</section>
-
-<!-- BOOKS -->
+<!-- FEATURED BOOKS -->
 <section id="books">
   <h2>Featured Books</h2>
 
   <div class="grid">
 
-    <div class="card"><img src="images/Author Pages.jpeg"><h3>Author Pages</h3></div>
-    <div class="card"><img src="images/Buniya Anthology.jpeg"><h3>Buniya Anthology</h3></div>
-    <div class="card"><img src="images/Destiny and Dreams- In between We.jpeg"><h3>Destiny & Dreams</h3></div>
-    <div class="card"><img src="images/Left Untold.jpeg"><h3>Left Untold</h3></div>
-    <div class="card"><img src="images/Magazine prime.jpeg_ featured"><h3>Magazine Prime</h3></div>
-    <div class="card"><img src="images/Nex8.jpeg"><h3>Nex8</h3></div>
-    <div class="card"><img src="images/Nex81.jpeg"><h3>Nex81</h3></div>
-    <div class="card"><img src="images/Prime Quality.jpeg"><h3>Prime Quality</h3></div>
+    <div class="card">
+      <img src="images/Left Untold.jpeg">
+      <h3>Left Untold</h3>
+    </div>
+
+    <div class="card">
+      <img src="images/Destiny and Dreams- In between We.jpeg">
+      <h3>Destiny & Dreams</h3>
+    </div>
 
   </div>
 </section>
 
-<!-- IDENTITY -->
-<section id="identity">
-  <h2>Writing Identity</h2>
+<!-- BOOK LINKS -->
+<section id="booklinks">
+  <h2>Book Links (Amazon)</h2>
 
   <div class="grid">
+
     <div class="card">
-      <img src="images/Logo.jpeg">
-      <h3>Official Writing Logo</h3>
+      <h3>Left Untold</h3>
+      <a class="button" href="https://www.amazon.com" target="_blank">View on Amazon</a>
     </div>
+
+    <div class="card">
+      <h3>Destiny & Dreams</h3>
+      <a class="button" href="https://www.amazon.com" target="_blank">View on Amazon</a>
+    </div>
+
   </div>
 </section>
 
@@ -250,10 +238,17 @@ p {
 
   <div class="grid">
 
-    <div class="card"><img src="images/Tagore award.jpeg"><h3>Tagore Award</h3></div>
-    <div class="card"><img src="images/Sahityakosh Samman Awardee.jpeg"><h3>Sahityakosh Samman</h3></div>
+    <div class="card"><img src="images/Author Pages.jpeg"><h3>Author Pages</h3></div>
     <div class="card"><img src="images/Bharatiya Youth FAce of India.jpeg"><h3>Bharatiya Youth Face</h3></div>
+    <div class="card"><img src="images/Buniya Anthology.jpeg"><h3>Buniya Anthology</h3></div>
     <div class="card"><img src="images/Litfest.jpeg"><h3>Litfest</h3></div>
+    <div class="card"><img src="images/Logo.jpeg"><h3>Writing Logo</h3></div>
+    <div class="card"><img src="images/Magazine prime.jpeg_ featured"><h3>Magazine Feature</h3></div>
+    <div class="card"><img src="images/Nex8.jpeg"><h3>Nex8</h3></div>
+    <div class="card"><img src="images/Nex81.jpeg"><h3>Nex81</h3></div>
+    <div class="card"><img src="images/Prime Quality.jpeg"><h3>Prime Quality</h3></div>
+    <div class="card"><img src="images/Sahityakosh Samman Awardee.jpeg"><h3>Sahityakosh Samman</h3></div>
+    <div class="card"><img src="images/Tagore award.jpeg"><h3>Tagore Award</h3></div>
 
   </div>
 </section>
