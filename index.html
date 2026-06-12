@@ -33,13 +33,13 @@ nav a {
 
 nav a:hover {
   background: #1f3f7a;
-  box-shadow: 0 0 12px #4da3ff;
+  box-shadow: 0 0 10px #4da3ff;
 }
 
-/* HERO FIXED (NO OVERLAP) */
+/* HERO */
 .hero {
   text-align: center;
-  padding: 90px 20px 60px;
+  padding: 100px 20px 70px;
   background: linear-gradient(135deg, #040b1a, #0b2a6f);
   color: white;
   position: relative;
@@ -56,7 +56,7 @@ nav a:hover {
   height: 600px;
   background: url("Logo.jpeg") no-repeat center;
   background-size: contain;
-  opacity: 0.25;
+  opacity: 0.22;
   transform: translate(-50%, -50%);
   filter: brightness(1.3) drop-shadow(0 0 20px #4da3ff);
   animation: floatLogo 6s ease-in-out infinite;
@@ -68,9 +68,8 @@ nav a:hover {
   100% { transform: translate(-50%, -50%) scale(1); }
 }
 
-/* HERO TEXT SEPARATION */
 .hero h1 {
-  font-size: 54px;
+  font-size: 56px;
   margin-bottom: 10px;
   position: relative;
 }
@@ -90,10 +89,10 @@ nav a:hover {
 
 /* SECTIONS */
 section {
-  padding: 45px 10%;
+  padding: 50px 10%;
 }
 
-/* ABOUT (COLORED + MOTIVATIONAL) */
+/* ABOUT */
 .about-card {
   background: linear-gradient(135deg, #ffffff, #e8f1ff, #f0eaff);
   padding: 25px;
@@ -103,14 +102,14 @@ section {
   line-height: 1.6;
 }
 
-/* BOOK GRID */
+/* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
 
-/* BOOK CARD */
+/* CARD */
 .card {
   background: white;
   border-radius: 14px;
@@ -133,49 +132,44 @@ section {
   padding: 10px;
 }
 
-/* BOOK PREVIEW TABS */
-.tabs {
+/* BOOK TEXT */
+.book-text {
+  padding: 12px;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* LINK TABS */
+.link-tabs {
   display: flex;
   justify-content: center;
-  gap: 8px;
-  padding: 10px;
   flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px;
 }
 
-.tab {
-  padding: 6px 10px;
-  font-size: 12px;
+.link-tabs a {
+  padding: 6px 12px;
   border-radius: 20px;
-  background: linear-gradient(135deg, #2f5cff, #4da3ff);
-  color: white;
-}
-
-/* LINKS */
-.link-group {
-  padding: 10px 15px 20px;
-  text-align: left;
-  font-size: 14px;
-}
-
-.link-group a {
-  display: block;
-  margin: 5px 0;
-  color: #2f5cff;
   text-decoration: none;
+  font-size: 12px;
+  color: white;
+  background: linear-gradient(135deg, #2f5cff, #4da3ff);
+  transition: 0.3s;
 }
 
-/* FEATURE BOX */
-.featured {
-  background: #ffffff;
-  border-left: 5px solid #2f5cff;
-  padding: 18px;
-  border-radius: 10px;
+.link-tabs a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #4da3ff;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="#about">About</a>
   <a href="#books">Books</a>
@@ -186,7 +180,7 @@ section {
 <div class="hero" data-aos="fade-down">
   <h1>Vydehi Paravada</h1>
   <h2>Stories in words. Stories in movement.</h2>
-  <p>Author • Storyteller • Voice of Emotion</p>
+  <p>Author • Storyteller • Emotional Voice</p>
 </div>
 
 <!-- ABOUT -->
@@ -194,18 +188,16 @@ section {
   <h2>About Me</h2>
 
   <div class="about-card">
-    I am an author passionate about exploring <b>human emotions, social issues, identity, and resilience</b>.
-    My writing reflects struggles, strength, and the beauty of bouncing back after life’s hardest phases.
+    I am an author passionate about human emotions, social realities, identity, and resilience.
+    My writing reflects real-life experiences, struggles, and the emotional strength required to rise after challenges.
 
     <br><br>
 
-    I aim to highlight real-world social conversations such as gender perspectives, emotional silence,
-    dreams versus reality, and the inner strength that shapes individuals.
+    I explore topics like gender perspectives, silent emotional battles, dreams vs reality, and how people rebuild life after setbacks.
 
     <br><br>
 
-    My stories are not just narratives — they are inspiration for anyone rebuilding their life,
-    rediscovering hope, and finding meaning in their journey.
+    My stories aim to inspire readers to reflect, heal, and rediscover hope through literature.
   </div>
 </section>
 
@@ -216,50 +208,49 @@ section {
   <div class="grid">
 
     <!-- LEFT UNTOLD -->
-    <div class="card" data-aos="fade-up">
+    <div class="card">
       <img src="Left Untold.jpeg">
-
       <h3>Left Untold</h3>
 
-      <div class="tabs">
-        <div class="tab">Emotional</div>
-        <div class="tab">Social Issues</div>
-        <div class="tab">Women Voice</div>
+      <div class="book-text">
+        This story follows a determined girl from the womb to adulthood, exploring her struggles, emotions, and aspirations.
+
+        <br><br>
+
+        Every girl carries an untold story shaped by expectations, silence, and hope. This journey reflects her search for love, freedom, identity, and a meaningful life filled with dreams and emotional truth.
+
+        <br><br>
+
+        I am an author passionate about human emotions, social realities, identity, and resilience. My writing reflects real-life experiences and the emotional strength required to rise after challenges.
       </div>
 
-      <p style="padding:0 12px; font-size:13px; color:#444;">
-        A powerful emotional journey of a girl’s life, exploring silence, identity, dreams,
-        and social expectations. It reflects how every girl carries an untold story shaped by society,
-        emotions, and hope for freedom and love.
-      </p>
-
-      <div class="link-group">
-        <a href="https://www.amazon.com/dp/1644296292" target="_blank">Amazon US</a>
-        <a href="https://www.amazon.in/Left-Untold-Vydehi-Paravada/dp/1644296292" target="_blank">Amazon India</a>
-        <a href="http://itunes.apple.com/us/book/id1440740127" target="_blank">Apple Books</a>
+      <div class="link-tabs">
+        <a href="https://www.amazon.com/dp/1644296292">Amazon US</a>
+        <a href="https://www.amazon.in/Left-Untold-Vydehi-Paravada/dp/1644296292">Amazon India</a>
+        <a href="http://itunes.apple.com/us/book/id1440740127">Apple Books</a>
       </div>
     </div>
 
     <!-- DESTINY -->
-    <div class="card" data-aos="fade-up">
+    <div class="card">
       <img src="Destiny and Dreams- In between We.jpeg">
-
       <h3>Destiny and Dreams</h3>
 
-      <div class="tabs">
-        <div class="tab">Fiction</div>
-        <div class="tab">Dreams</div>
-        <div class="tab">Life Journey</div>
+      <div class="book-text">
+        Destiny and Dreams is about the conflict between what we wish for and what life has planned.
+
+        <br><br>
+
+        Two young men move to a new city chasing ambition, unaware that destiny already has its own path.
+
+        <br><br>
+
+        The story explores whether dreams shape destiny or destiny reshapes dreams, questioning life, choices, and the unpredictable journey of human ambition.
       </div>
 
-      <p style="padding:0 12px; font-size:13px; color:#444;">
-        A story of two young men chasing dreams in a new city, unaware that destiny has its own path.
-        It explores the conflict between ambition and fate, and how life reshapes choices in unexpected ways.
-      </p>
-
-      <div class="link-group">
-        <a href="http://www.amazon.in/dp/B08LZMKK3M" target="_blank">Amazon</a>
-        <a href="https://www.flipkart.com/destiny-dreams-in-between/p/itmad287d30f650b" target="_blank">Flipkart</a>
+      <div class="link-tabs">
+        <a href="http://www.amazon.in/dp/B08LZMKK3M">Amazon India</a>
+        <a href="https://www.flipkart.com/destiny-dreams-in-between/p/itmad287d30f650b">Flipkart</a>
       </div>
     </div>
 
@@ -271,17 +262,14 @@ section {
   <h2>Awards & Recognition</h2>
 
   <div class="grid">
-
     <div class="card"><img src="Voice of Indian Literature.jpeg"><h3>Voice of Indian Literature Award</h3></div>
     <div class="card"><img src="Tagore award.jpeg"><h3>Tagore Commemorative Honouree</h3></div>
     <div class="card"><img src="Sahityakosh Samman Awardee.jpeg"><h3>Sahityakosh Samman Awardee</h3></div>
     <div class="card"><img src="Prime Quality.jpeg"><h3>Prime Quality Education Awardee</h3></div>
     <div class="card"><img src="Nex81.jpeg"><h3>Author of Litfest by ne8x_official</h3></div>
     <div class="card"><img src="Nex8.jpeg"><h3>Literature Contribution Awardee</h3></div>
-    <div class="card"><img src="Litfest.jpeg"><h3>Litfest Recognition</h3></div>
     <div class="card"><img src="Buniya Anthology.jpeg"><h3>Buniya Anthology</h3></div>
     <div class="card"><img src="Bharatiya Youth FAce of India.jpeg"><h3>Bharatiya Youth Face of India</h3></div>
-
   </div>
 </section>
 
