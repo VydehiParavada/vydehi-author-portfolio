@@ -1,292 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vydehi Portfolio</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  overflow-x: hidden;
-}
-
-/* ================= NAV ================= */
-nav {
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  background: #0b1f3a;
-  z-index: 1000;
-}
-
-nav a {
-  padding: 14px 20px;
-  color: white;
-  text-decoration: none;
-}
-
-nav a:hover {
-  background: #1f3f7a;
-  border-radius: 6px;
-}
-
-/* ================= HERO ================= */
-.hero {
-  text-align: center;
-  padding: 90px 20px;
-  background: linear-gradient(135deg, #081428, #0b2a6f);
-  color: white;
-}
-
-.hero img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid #ffffff;
-}
-
-.hero h1 {
-  font-size: 46px;
-  margin: 10px 0;
-}
-
-.hero p {
-  color: #cfe0ff;
-}
-
-/* ================= SECTIONS ================= */
-section {
-  padding: 70px 12%;
-  transition: 0.8s ease;
-}
-
-.light {
-  background: #f4f7ff;
-  color: #1a1f2e;
-}
-
-.dark {
-  background: #0b1f3a;
-  color: white;
-}
-
-h2 {
-  margin-bottom: 25px;
-}
-
-.light h2 { color: #0b2a6f; }
-.dark h2 { color: #9fc0ff; }
-
-/* ================= GRID ================= */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 22px;
-}
-
-/* ================= CARD (ENHANCED) ================= */
-.card {
-  border-radius: 12px;
-  overflow: hidden;
-  text-align: center;
-  transition: all 0.4s ease;
-  animation: fadeIn 0.8s ease forwards;
-  opacity: 0;
-}
-
-/* light cards */
-.light .card {
-  background: white;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-/* dark cards */
-.dark .card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-/* hover glow effect (IMPORTANT UPGRADE) */
-.card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 0 18px rgba(0,255,200,0.35),
-              0 0 35px rgba(0,150,255,0.25);
-}
-
-/* image */
-.card img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-}
-
-.card h3 {
-  padding: 10px;
-}
-
-/* ================= BUTTON ================= */
-.button {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 14px;
-  background: #2f5cff;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-.button:hover {
-  background: #ffd27a;
-  color: #000;
-}
-
-/* ================= MODAL ================= */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  width: 320px;
-  text-align: center;
-}
-
-.modal img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* ================= ANIMATIONS ================= */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style>
-</head>
-
-<body>
-
-<!-- NAV -->
-<nav>
-  <a href="#books">Books</a>
-  <a href="#links">Book Links</a>
-  <a href="#awards">Awards</a>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <img src="images/profile.jpeg">
-  <h1>Vydehi Paravada</h1>
-  <p>Author | Storyteller | Dancer</p>
-</div>
-
-<!-- BOOKS -->
-<section id="books" class="light">
-  <h2>Featured Books</h2>
-
-  <div class="grid">
-
-    <div class="card" onclick="openModal('Left Untold','images/Left Untold.jpeg')">
-      <img src="images/Left Untold.jpeg">
-      <h3>Left Untold</h3>
-    </div>
-
-    <div class="card" onclick="openModal('Destiny & Dreams','images/Destiny and Dreams- In between We.jpeg')">
-      <img src="images/Destiny and Dreams- In between We.jpeg">
-      <h3>Destiny & Dreams - Inbetween We</h3>
-    </div>
-
-  </div>
-</section>
-
-<!-- LINKS -->
-<section id="links" class="dark">
-  <h2>Book Links (Amazon)</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Left Untold</h3>
-      <a class="button" href="https://www.amazon.com" target="_blank">Buy on Amazon</a>
-    </div>
-
-    <div class="card">
-      <h3>Destiny & Dreams</h3>
-      <a class="button" href="https://www.amazon.com" target="_blank">Buy on Amazon</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- AWARDS (UPDATED) -->
-<section id="awards" class="light">
+<!-- AWARDS -->
+<section class="light">
   <h2>Awards & Recognition</h2>
 
   <div class="grid">
 
-    <div class="card"><img src="images/Author Pages.jpeg"><h3>Author Pages Magazine Feature</h3></div>
+    <!-- ⭐ HIGHEST PRIORITY FIRST -->
+    <div class="card">
+      <img src="Voice of Indian Literature.jpeg">
+      <h3>Voice of Indian Literature Award</h3>
+    </div>
 
-    <div class="card"><img src="images/Bharatiya Youth FAce of India.jpeg"><h3>Bharatiya Youth Face of India</h3></div>
+    <div class="card"><img src="Tagore award.jpeg"><h3>Tagore Award</h3></div>
 
-    <div class="card"><img src="images/Buniya Anthology.jpeg"><h3>Literature Contribution Awardee (LitFest)</h3></div>
+    <div class="card"><img src="Sahityakosh Samman Awardee.jpeg"><h3>Sahityakosh Samman</h3></div>
 
-    <div class="card"><img src="images/Litfest.jpeg"><h3>Author of LitFest by NE8x_Official</h3></div>
+    <div class="card"><img src="Prime Quality.jpeg"><h3>Prime Quality Recognition</h3></div>
 
-    <div class="card"><img src="images/Logo.jpeg"><h3>Tagore Commemorative Honouree</h3></div>
+    <div class="card"><img src="Nex81.jpeg"><h3>Nex81</h3></div>
 
-    <div class="card"><img src="images/Magazine prime.jpeg_ featured"><h3>Prime Quality Education Awardee</h3></div>
+    <div class="card"><img src="Nex8.jpeg"><h3>Nex8</h3></div>
 
-    <div class="card"><img src="images/Nex8.jpeg"><h3>Sahityakosh Samman Awardee</h3></div>
+    <div class="card"><img src="Magazine prime.jpeg_ featured"><h3>Magazine Feature</h3></div>
 
-    <div class="card"><img src="images/Nex81.jpeg"><h3>Recognition Award</h3></div>
+    <div class="card"><img src="Buniya Anthology.jpeg"><h3>Buniya Anthology</h3></div>
 
-    <div class="card"><img src="images/Prime Quality.jpeg"><h3>Academic Excellence Recognition</h3></div>
+    <div class="card"><img src="Bharatiya Youth FAce of India.jpeg"><h3>Bharatiya Youth Face of India</h3></div>
 
-    <div class="card"><img src="images/Sahityakosh Samman Awardee.jpeg"><h3>Literary Achievement Honor</h3></div>
-
-    <div class="card"><img src="images/Tagore award.jpeg"><h3>National Literary Recognition</h3></div>
+    <div class="card"><img src="Author Pages.jpeg"><h3>Author Pages</h3></div>
 
   </div>
 </section>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <img id="modalImg">
-    <h3 id="modalTitle"></h3>
-    <button class="button" onclick="closeModal()">Close</button>
-  </div>
-</div>
-
-<script>
-function openModal(title, img) {
-  document.getElementById("modal").style.display = "flex";
-  document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modalImg").src = img;
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-</script>
-
-</body>
-</html>
