@@ -9,20 +9,8 @@
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f7ff;
   overflow-x: hidden;
-}
-
-/* ================= BACKGROUND LOGO ================= */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("images/Logo.jpeg") center/300px no-repeat;
-  opacity: 0.06;
-  z-index: -1;
 }
 
 /* ================= NAV ================= */
@@ -49,16 +37,17 @@ nav a:hover {
 /* ================= HERO ================= */
 .hero {
   text-align: center;
-  padding: 90px 20px;
+  padding: 80px 20px;
   background: linear-gradient(135deg, #081428, #0b2a6f);
   color: white;
 }
 
 .hero img {
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   border: 3px solid white;
+  animation: float 4s ease-in-out infinite;
 }
 
 .hero h1 {
@@ -70,12 +59,18 @@ nav a:hover {
   color: #cfe0ff;
 }
 
+/* FLOAT ANIMATION */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
 /* ================= SECTIONS ================= */
 section {
   padding: 70px 12%;
   opacity: 0;
   transform: translateY(40px);
-  transition: all 0.8s ease;
+  transition: 0.8s ease;
 }
 
 section.show {
@@ -83,7 +78,7 @@ section.show {
   transform: translateY(0);
 }
 
-/* alternating */
+/* alternating colors */
 .light {
   background: #f4f7ff;
   color: #1a1f2e;
@@ -94,18 +89,10 @@ section.show {
   color: white;
 }
 
-/* ================= HEADINGS ================= */
-h2 {
-  margin-bottom: 15px;
-}
-
-.light h2 { color: #0b2a6f; }
-.dark h2 { color: #9fc0ff; }
-
 /* ================= GRID ================= */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 22px;
 }
 
@@ -113,11 +100,8 @@ h2 {
 .card {
   border-radius: 12px;
   overflow: hidden;
-  transition: 0.4s ease;
+  transition: 0.4s;
   cursor: pointer;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 0.8s forwards;
 }
 
 .light .card {
@@ -134,33 +118,25 @@ h2 {
   transform: translateY(-8px);
 }
 
-/* image */
 .card img {
   width: 100%;
   height: 240px;
   object-fit: cover;
 }
 
-/* text */
 .card h3 {
-  padding: 8px;
-}
-
-.card p {
-  padding: 0 10px 10px;
-  font-size: 14px;
-  opacity: 0.85;
+  padding: 10px;
 }
 
 /* ================= BUTTON ================= */
 .button {
   display: inline-block;
-  margin: 10px;
+  margin-top: 10px;
   padding: 10px 14px;
   background: #2f5cff;
   color: white;
-  text-decoration: none;
   border-radius: 6px;
+  text-decoration: none;
 }
 
 .button:hover {
@@ -168,42 +144,63 @@ h2 {
   color: #000;
 }
 
-/* ================= ANIMATIONS ================= */
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
+/* ================= MODAL ================= */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+}
+
+.modal img {
+  width: 100%;
+  border-radius: 10px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#about">About</a>
-  <a href="#books">Books</a>
-  <a href="#links">Book Links</a>
-  <a href="#awards">Awards</a>
-</nav>
-
 <!-- HERO -->
 <div class="hero">
-  <img src="images/profile.jpeg">
+  <!-- OUTSIDE IMAGE (NO FOLDER) -->
+  <img src="logo.jpeg">
+
   <h1>Vydehi Paravada</h1>
   <p>Author | Storyteller | Dancer</p>
 </div>
 
+<!-- NAV -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#books">Books</a>
+  <a href="#links">Links</a>
+  <a href="#awards">Awards</a>
+</nav>
+
 <!-- ABOUT -->
 <section id="about" class="light">
   <h2>About Me</h2>
+
   <p>
-    I am an author, storyteller, and dancer who believes in expressing emotions through words,
-    movement, and imagination. My journey blends literature and performing arts, where every story
-    reflects identity, culture, and human connection.
+    I am an author, storyteller, and dancer who expresses creativity through writing, emotions,
+    and performance. My work reflects human connection, identity, and imagination.
   </p>
 
   <p>
-    I write to inspire, to preserve emotions, and to create meaningful narratives that resonate
-    with readers across different walks of life.
+    I believe stories are not just written — they are lived, felt, and shared across journeys.
   </p>
 </section>
 
@@ -213,16 +210,14 @@ h2 {
 
   <div class="grid">
 
-    <div class="card">
-      <img src="images/Left Untold.jpeg">
+    <div class="card" onclick="openModal('Left Untold','Left Untold.jpeg')">
+      <img src="Left Untold.jpeg">
       <h3>Left Untold</h3>
-      <p>A poetic reflection of unspoken emotions, silence, and inner journeys.</p>
     </div>
 
-    <div class="card">
-      <img src="images/Destiny and Dreams- In between We.jpeg">
+    <div class="card" onclick="openModal('Destiny & Dreams','Destiny and Dreams- In between We.jpeg')">
+      <img src="Destiny and Dreams- In between We.jpeg">
       <h3>Destiny & Dreams - Inbetween We</h3>
-      <p>A story of connection, fate, and the invisible threads between people.</p>
     </div>
 
   </div>
@@ -240,7 +235,7 @@ h2 {
     </div>
 
     <div class="card">
-      <h3>Destiny & Dreams - Inbetween We</h3>
+      <h3>Destiny & Dreams</h3>
       <a class="button" href="https://www.amazon.com" target="_blank">Buy on Amazon</a>
     </div>
 
@@ -253,34 +248,52 @@ h2 {
 
   <div class="grid">
 
-    <div class="card"><img src="images/Author Pages.jpeg"><h3>Author Pages</h3></div>
-    <div class="card"><img src="images/Bharatiya Youth FAce of India.jpeg"><h3>Bharatiya Youth Face</h3></div>
-    <div class="card"><img src="images/Buniya Anthology.jpeg"><h3>Buniya Anthology</h3></div>
-    <div class="card"><img src="images/Litfest.jpeg"><h3>Litfest</h3></div>
-    <div class="card"><img src="images/Logo.jpeg"><h3>Writing Logo</h3></div>
-    <div class="card"><img src="images/Magazine prime.jpeg_ featured"><h3>Magazine Feature</h3></div>
-    <div class="card"><img src="images/Nex8.jpeg"><h3>Nex8</h3></div>
-    <div class="card"><img src="images/Nex81.jpeg"><h3>Nex81</h3></div>
-    <div class="card"><img src="images/Prime Quality.jpeg"><h3>Prime Quality</h3></div>
-    <div class="card"><img src="images/Sahityakosh Samman Awardee.jpeg"><h3>Sahityakosh Samman</h3></div>
-    <div class="card"><img src="images/Tagore award.jpeg"><h3>Tagore Award</h3></div>
+    <div class="card"><img src="Author Pages.jpeg"><h3>Author Pages</h3></div>
+    <div class="card"><img src="Bharatiya Youth FAce of India.jpeg"><h3>Bharatiya Youth Face</h3></div>
+    <div class="card"><img src="Buniya Anthology.jpeg"><h3>Buniya Anthology</h3></div>
+    <div class="card"><img src="Litfest.jpeg"><h3>Litfest</h3></div>
+    <div class="card"><img src="Logo.jpeg"><h3>Logo</h3></div>
+    <div class="card"><img src="Magazine prime.jpeg_ featured"><h3>Magazine Feature</h3></div>
+    <div class="card"><img src="Nex8.jpeg"><h3>Nex8</h3></div>
+    <div class="card"><img src="Nex81.jpeg"><h3>Nex81</h3></div>
+    <div class="card"><img src="Prime Quality.jpeg"><h3>Prime Quality</h3></div>
+    <div class="card"><img src="Sahityakosh Samman Awardee.jpeg"><h3>Sahityakosh Samman</h3></div>
+    <div class="card"><img src="Tagore award.jpeg"><h3>Tagore Award</h3></div>
 
   </div>
 </section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <img id="modalImg">
+    <h3 id="modalTitle"></h3>
+    <button class="button" onclick="closeModal()">Close</button>
+  </div>
+</div>
 
 <script>
 // scroll animation
 const sections = document.querySelectorAll("section");
 
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add("show");
   });
 });
 
-sections.forEach(sec => observer.observe(sec));
+sections.forEach(s => observer.observe(s));
+
+// modal
+function openModal(title, img) {
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalImg").src = img;
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
 </script>
 
 </body>
