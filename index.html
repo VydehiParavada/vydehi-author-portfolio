@@ -9,74 +9,68 @@
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
-  background: #f4f7ff;
-  color: #1a1f2e;
   overflow-x: hidden;
 }
 
-/* HERO */
+/* ================= BACKGROUND LOGO ================= */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("images/Logo.jpeg") center/300px no-repeat;
+  opacity: 0.06;
+  z-index: -1;
+}
+
+/* ================= NAV ================= */
+nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  background: #0b1f3a;
+  z-index: 1000;
+}
+
+nav a {
+  padding: 14px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background: #1f3f7a;
+  border-radius: 6px;
+}
+
+/* ================= HERO ================= */
 .hero {
   text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #eaf1ff, #f4f7ff);
-  position: relative;
+  padding: 90px 20px;
+  background: linear-gradient(135deg, #081428, #0b2a6f);
+  color: white;
 }
 
 .hero img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #2f5cff;
-  margin-bottom: 10px;
+  border: 3px solid white;
 }
 
 .hero h1 {
-  font-size: 44px;
-  margin: 0;
-  color: #0b2a6f;
-}
-
-.hero h1::before {
-  content: "VYDEHI PARAVADA";
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  transform: translate(-50%, -50%);
-  font-size: 70px;
-  opacity: 0.07;
-  white-space: nowrap;
-  z-index: 0;
+  font-size: 46px;
+  margin: 10px 0;
 }
 
 .hero p {
-  color: #355;
+  color: #cfe0ff;
 }
 
-/* NAV */
-nav {
-  position: sticky;
-  top: 0;
-  background: white;
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid #e6e9f5;
-  z-index: 1000;
-}
-
-nav a {
-  padding: 14px 20px;
-  text-decoration: none;
-  color: #1a2b4a;
-  font-weight: 500;
-}
-
-nav a:hover {
-  background: #eaf1ff;
-  border-radius: 8px;
-}
-
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 section {
   padding: 70px 12%;
   opacity: 0;
@@ -89,46 +83,79 @@ section.show {
   transform: translateY(0);
 }
 
-h2 {
-  color: #0b2a6f;
-  margin-bottom: 25px;
+/* alternating */
+.light {
+  background: #f4f7ff;
+  color: #1a1f2e;
 }
 
-/* GRID */
+.dark {
+  background: #0b1f3a;
+  color: white;
+}
+
+/* ================= HEADINGS ================= */
+h2 {
+  margin-bottom: 15px;
+}
+
+.light h2 { color: #0b2a6f; }
+.dark h2 { color: #9fc0ff; }
+
+/* ================= GRID ================= */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 22px;
 }
 
-/* CARD */
+/* ================= CARD ================= */
 .card {
-  background: white;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.4s ease;
   cursor: pointer;
-  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s forwards;
+}
+
+.light .card {
+  background: white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.dark .card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
 }
 
+/* image */
 .card img {
   width: 100%;
   height: 240px;
   object-fit: cover;
 }
 
+/* text */
 .card h3 {
-  padding: 10px;
+  padding: 8px;
 }
 
-/* BUTTON */
+.card p {
+  padding: 0 10px 10px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* ================= BUTTON ================= */
 .button {
   display: inline-block;
-  margin-top: 10px;
+  margin: 10px;
   padding: 10px 14px;
   background: #2f5cff;
   color: white;
@@ -137,52 +164,26 @@ h2 {
 }
 
 .button:hover {
-  background: #1c3fbf;
+  background: #ffd27a;
+  color: #000;
 }
 
-/* MODAL (BOOK POPUP) */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  width: 300px;
-  text-align: center;
-}
-
-.modal img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* SCROLL ANIMATION */
-@media (prefers-reduced-motion: no-preference) {
-  .fade {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-  }
-  .fade.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
 
 <body>
+
+<!-- NAV -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#books">Books</a>
+  <a href="#links">Book Links</a>
+  <a href="#awards">Awards</a>
+</nav>
 
 <!-- HERO -->
 <div class="hero">
@@ -191,53 +192,63 @@ h2 {
   <p>Author | Storyteller | Dancer</p>
 </div>
 
-<!-- NAV -->
-<nav>
-  <a href="#books">Featured Books</a>
-  <a href="#booklinks">Book Links</a>
-  <a href="#awards">Awards</a>
-</nav>
+<!-- ABOUT -->
+<section id="about" class="light">
+  <h2>About Me</h2>
+  <p>
+    I am an author, storyteller, and dancer who believes in expressing emotions through words,
+    movement, and imagination. My journey blends literature and performing arts, where every story
+    reflects identity, culture, and human connection.
+  </p>
 
-<!-- FEATURED BOOKS -->
-<section id="books" class="fade">
+  <p>
+    I write to inspire, to preserve emotions, and to create meaningful narratives that resonate
+    with readers across different walks of life.
+  </p>
+</section>
+
+<!-- BOOKS -->
+<section id="books" class="dark">
   <h2>Featured Books</h2>
 
   <div class="grid">
 
-    <div class="card" onclick="openModal('Left Untold','images/Left Untold.jpeg')">
+    <div class="card">
       <img src="images/Left Untold.jpeg">
       <h3>Left Untold</h3>
+      <p>A poetic reflection of unspoken emotions, silence, and inner journeys.</p>
     </div>
 
-    <div class="card" onclick="openModal('Destiny & Dreams','images/Destiny and Dreams- In between We.jpeg')">
+    <div class="card">
       <img src="images/Destiny and Dreams- In between We.jpeg">
-      <h3>Destiny & Dreams</h3>
+      <h3>Destiny & Dreams - Inbetween We</h3>
+      <p>A story of connection, fate, and the invisible threads between people.</p>
     </div>
 
   </div>
 </section>
 
-<!-- BOOK LINKS -->
-<section id="booklinks" class="fade">
+<!-- LINKS -->
+<section id="links" class="light">
   <h2>Book Links (Amazon)</h2>
 
   <div class="grid">
 
     <div class="card">
       <h3>Left Untold</h3>
-      <a class="button" href="https://www.amazon.com" target="_blank">View on Amazon</a>
+      <a class="button" href="https://www.amazon.com" target="_blank">Buy on Amazon</a>
     </div>
 
     <div class="card">
-      <h3>Destiny & Dreams</h3>
-      <a class="button" href="https://www.amazon.com" target="_blank">View on Amazon</a>
+      <h3>Destiny & Dreams - Inbetween We</h3>
+      <a class="button" href="https://www.amazon.com" target="_blank">Buy on Amazon</a>
     </div>
 
   </div>
 </section>
 
 <!-- AWARDS -->
-<section id="awards" class="fade">
+<section id="awards" class="dark">
   <h2>Awards & Recognition</h2>
 
   <div class="grid">
@@ -246,7 +257,7 @@ h2 {
     <div class="card"><img src="images/Bharatiya Youth FAce of India.jpeg"><h3>Bharatiya Youth Face</h3></div>
     <div class="card"><img src="images/Buniya Anthology.jpeg"><h3>Buniya Anthology</h3></div>
     <div class="card"><img src="images/Litfest.jpeg"><h3>Litfest</h3></div>
-    <div class="card"><img src="images/Logo.jpeg"><h3>Logo</h3></div>
+    <div class="card"><img src="images/Logo.jpeg"><h3>Writing Logo</h3></div>
     <div class="card"><img src="images/Magazine prime.jpeg_ featured"><h3>Magazine Feature</h3></div>
     <div class="card"><img src="images/Nex8.jpeg"><h3>Nex8</h3></div>
     <div class="card"><img src="images/Nex81.jpeg"><h3>Nex81</h3></div>
@@ -257,37 +268,19 @@ h2 {
   </div>
 </section>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <img id="modalImg">
-    <h3 id="modalTitle"></h3>
-    <button class="button" onclick="closeModal()">Close</button>
-  </div>
-</div>
-
 <script>
 // scroll animation
-const sections = document.querySelectorAll(".fade");
-window.addEventListener("scroll", () => {
-  sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      sec.classList.add("show");
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
     }
   });
 });
 
-// modal
-function openModal(title, img) {
-  document.getElementById("modal").style.display = "flex";
-  document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modalImg").src = img;
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
+sections.forEach(sec => observer.observe(sec));
 </script>
 
 </body>
