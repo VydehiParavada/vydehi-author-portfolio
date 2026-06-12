@@ -1,227 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vydehi Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vydehi Paravada | Portfolio</title>
 
-<style>
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f4f7ff;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
 
-/* NAV */
-nav {
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  background: #0b1f3a;
-}
-nav a {
-  padding: 14px 20px;
-  color: white;
-  text-decoration: none;
-}
-nav a:hover {
-  background: #1f3f7a;
-}
+    /* HEADER */
+    header {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #1e3a8a, #0f172a);
+    }
 
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 70px 20px;
-  background: linear-gradient(135deg, #081428, #0b2a6f);
-  color: white;
-}
+    header h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
 
-.hero img {
-  width: 140px;
-  height: 140px;
-  object-fit: contain;
-  background: white;
-  padding: 10px;
-  border-radius: 20px;
-}
+    header p {
+      font-size: 18px;
+      opacity: 0.8;
+    }
 
-.hero h1 { font-size: 46px; margin: 10px 0; }
+    /* SECTION TITLE */
+    .section-title {
+      text-align: center;
+      font-size: 28px;
+      margin: 50px 0 30px;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
 
-.tagline {
-  color: #cfe0ff;
-  font-size: 18px;
-}
+    /* AWARDS SECTION */
+    .awards-section {
+      padding: 40px 20px 80px;
+    }
 
-/* SECTIONS */
-section {
-  padding: 70px 12%;
-}
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-.light { background: #f4f7ff; }
-.dark { background: #0b1f3a; color: white; }
+    .award-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 18px;
+      border-radius: 14px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 500;
 
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-}
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
 
-/* CARD */
-.card {
-  background: white;
-  border-radius: 14px;
-  overflow: hidden;
-  text-align: center;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
 
-.dark .card {
-  background: rgba(255,255,255,0.06);
-  color: white;
-}
+      animation: floatIn 0.8s ease forwards;
+    }
 
-.card:hover {
-  transform: translateY(-8px);
-}
+    /* Hover Glow */
+    .award-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow:
+        0 0 12px rgba(0, 255, 200, 0.6),
+        0 0 25px rgba(0, 150, 255, 0.4),
+        0 0 40px rgba(0, 255, 120, 0.2);
+      border: 1px solid rgba(0, 255, 200, 0.5);
+    }
 
-.card img {
-  width: 100%;
-  height: 320px;
-  object-fit: contain;
-  background: white;
-  padding: 10px;
-}
+    /* Shine Effect */
+    .award-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.25),
+        transparent
+      );
+      transform: skewX(-20deg);
+    }
 
-/* LINKS */
-.link-group {
-  padding: 10px 15px 20px;
-  text-align: left;
-  font-size: 14px;
-}
+    .award-card:hover::before {
+      animation: shine 0.9s ease forwards;
+    }
 
-.link-group a {
-  display: block;
-  margin: 5px 0;
-  color: #2f5cff;
-  text-decoration: none;
-}
+    @keyframes shine {
+      0% { left: -75%; }
+      100% { left: 130%; }
+    }
 
-.link-group a:hover {
-  text-decoration: underline;
-}
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-/* FEATURED WEBSITE */
-.featured {
-  background: #ffffff;
-  border-left: 5px solid #2f5cff;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 40px;
-}
-
-.featured a {
-  color: #2f5cff;
-  font-weight: bold;
-}
-</style>
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <img src="Logo.jpeg">
-  <h1>Vydehi Paravada</h1>
-  <p class="tagline">Stories in words. Stories in movement.</p>
-</div>
+  <!-- HEADER -->
+  <header>
+    <h1>Vydehi Paravada</h1>
+    <p>Author | QA Lead | Tech Professional</p>
+  </header>
 
-<!-- ABOUT -->
-<section class="light">
-  <h2>About Me</h2>
-  <p>
-    I am an author and storyteller who expresses creativity through writing and imagination.
-    My work reflects emotions, identity, and human experiences across cultures and life journeys.
-  </p>
-</section>
+  <!-- AWARDS SECTION -->
+  <section class="awards-section">
 
-<!-- FEATURED WEBSITE -->
-<section class="light">
-  <div class="featured">
-    🌟 Featured Recognition:  
-    <a href="https://theindiasaga.com/saga-corner/lifetsyle/presstone-agency-presents-top-10-most-talented-indian-writers-you-need-to-know/" target="_blank">
-      Top 10 Most Talented Indian Writers Feature
-    </a>
-  </div>
-</section>
+    <h2 class="section-title">Awards & Recognitions</h2>
 
-<!-- BOOKS -->
-<section class="dark">
-  <h2>Featured Books</h2>
+    <div class="awards-grid">
 
-  <div class="grid">
+      <div class="award-card">Tagore Commemorative Honouree</div>
 
-    <!-- BOOK 1 -->
-    <div class="card">
-      <img src="Left Untold.jpeg">
-      <h3>Left Untold</h3>
-      <p>
-        A deeply emotional narrative exploring silence, heartbreak, and the unspoken layers of human relationships.
-      </p>
+      <div class="award-card">Sahityakosh Samman Awardee</div>
 
-      <div class="link-group">
-        <b>Amazon:</b>
-        <a href="https://www.amazon.in/dp/B08LZMKK3M" target="_blank">India Amazon Link</a>
-        <a href="https://www.amazon.com/dp/1644296292" target="_blank">US Amazon Link</a>
+      <div class="award-card">Prime Quality Education Awardee</div>
 
-        <b>Flipkart:</b>
-        <a href="https://www.flipkart.com/destiny-dreams-in-between/p/itmad287d30f650b" target="_blank">Flipkart Link</a>
-      </div>
+      <div class="award-card">Author of LitFest by NE8x_Official</div>
+
+      <div class="award-card">Literature Contribution Awardee (LitFest)</div>
+
+      <div class="award-card">Bharatiya Youth Face of India</div>
+
+      <div class="award-card">Author Pages Magazine Featured Writer</div>
+
     </div>
+  </section>
 
-    <!-- BOOK 2 -->
-    <div class="card">
-      <img src="Destiny and Dreams- In between We.jpeg">
-      <h3>Destiny and Dreams - Inbetween We</h3>
-      <p>
-        A poetic reflection of destiny, connection, and invisible bonds that shape human lives.
-      </p>
-
-      <div class="link-group">
-        <b>Amazon:</b>
-        <a href="http://amazon.in/dp/B07JZ92TRS" target="_blank">India Amazon Link</a>
-        <a href="http://itunes.apple.com/us/book/id1440740127" target="_blank">Apple Books</a>
-
-        <b>Flipkart:</b>
-        <a href="https://www.flipkart.com/destiny-dreams-in-between/p/itmad287d30f650b" target="_blank">Flipkart Link</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- AWARDS -->
-<section class="light">
-  <h2>Awards & Recognition</h2>
-
-  <div class="grid">
-
-    <div class="card"><img src="Tagore award.jpeg"><h3>Tagore Award</h3></div>
-    <div class="card"><img src="Sahityakosh Samman Awardee.jpeg"><h3>Sahityakosh Samman</h3></div>
-    <div class="card"><img src="Prime Quality.jpeg"><h3>Prime Quality</h3></div>
-    <div class="card"><img src="Nex81.jpeg"><h3>Nex81</h3></div>
-    <div class="card"><img src="Nex8.jpeg"><h3>Nex8</h3></div>
-    <div class="card"><img src="Magazine prime.jpeg_ featured"><h3>Magazine Feature</h3></div>
-    <div class="card"><img src="Logo.jpeg"><h3>Writing Logo</h3></div>
-    <div class="card"><img src="Litfest.jpeg"><h3>Litfest</h3></div>
-    <div class="card"><img src="Buniya Anthology.jpeg"><h3>Buniya Anthology</h3></div>
-    <div class="card"><img src="Bharatiya Youth FAce of India.jpeg"><h3>Bharatiya Youth Face</h3></div>
-    <div class="card"><img src="Author Pages.jpeg"><h3>Author Pages</h3></div>
-
-  </div>
-</section>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Vydehi Paravada | All Rights Reserved
+  </footer>
 
 </body>
 </html>
