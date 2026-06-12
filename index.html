@@ -1,32 +1,273 @@
-<!-- AWARDS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vydehi Portfolio</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f6f8ff;
+  overflow-x: hidden;
+}
+
+/* ================= BACKGROUND LOGO (BIG WATERMARK) ================= */
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 900px;
+  height: 900px;
+  transform: translate(-50%, -50%);
+  background: url("Logo.jpeg") center/contain no-repeat;
+  opacity: 0.06;
+  z-index: -1;
+  animation: floatLogo 10s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0%,100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -52%) scale(1.05); }
+}
+
+/* ================= NAV ================= */
+nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  background: rgba(11,31,58,0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+nav a {
+  padding: 14px 18px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  background: #1f3f7a;
+  border-radius: 6px;
+}
+
+/* ================= HERO ================= */
+.hero {
+  text-align: center;
+  padding: 60px 20px 30px;
+  background: linear-gradient(135deg, #081428, #0b2a6f);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 46px;
+  margin: 10px 0;
+}
+
+.tagline {
+  color: #cfe0ff;
+  font-size: 18px;
+}
+
+/* remove small logo (we use background now) */
+.hero img {
+  display: none;
+}
+
+/* ================= SECTIONS ================= */
+section {
+  padding: 50px 10%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s ease;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= COLORS ================= */
+.light {
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(6px);
+}
+
+.dark {
+  background: rgba(11,31,58,0.92);
+  color: white;
+}
+
+/* ================= HEADINGS ================= */
+h2 {
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ================= CARD (BLENDED STYLE) ================= */
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.4s ease;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.light .card {
+  background: rgba(255,255,255,0.75);
+}
+
+.dark .card {
+  background: rgba(255,255,255,0.06);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* BOOK IMAGE BLEND (NO WHITE BOX LOOK) */
+.card img {
+  width: 100%;
+  height: 330px;
+  object-fit: contain;
+  padding: 12px;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+  transition: 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* TEXT */
+.card h3 {
+  margin: 8px 0;
+}
+
+.card p {
+  font-size: 14px;
+  padding: 0 12px 12px;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+/* BUTTON */
+.button {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  background: #2f5cff;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #ffd27a;
+  color: black;
+}
+
+/* ================= SCROLL ANIMATION ================= */
+html {
+  scroll-behavior: smooth;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Vydehi Paravada</h1>
+  <p class="tagline">Stories in words. Stories in movement.</p>
+</div>
+
+<!-- ABOUT -->
 <section class="light">
-  <h2>Awards & Recognition</h2>
+  <h2>About Me</h2>
+  <p>
+    I am an author and storyteller who expresses creativity through words and imagination.
+    My work reflects emotions, identity, and human experiences across cultures and life journeys.
+  </p>
+</section>
+
+<!-- BOOKS -->
+<section class="dark">
+  <h2>Featured Books</h2>
 
   <div class="grid">
 
-    <!-- ⭐ HIGHEST PRIORITY FIRST -->
+    <!-- LEFT UNTOLD (ALL CORRECT LINKS) -->
     <div class="card">
-      <img src="Voice of Indian Literature.jpeg">
-      <h3>Voice of Indian Literature Award</h3>
+      <img src="Left Untold.jpeg">
+      <h3>Left Untold</h3>
+      <p>A deeply emotional journey of silence, relationships, and unspoken truths.</p>
+      <a class="button" href="https://www.amazon.in/dp/B08LZMKK3M" target="_blank">Amazon India</a>
     </div>
 
-    <div class="card"><img src="Tagore award.jpeg"><h3>Tagore Award</h3></div>
-
-    <div class="card"><img src="Sahityakosh Samman Awardee.jpeg"><h3>Sahityakosh Samman</h3></div>
-
-    <div class="card"><img src="Prime Quality.jpeg"><h3>Prime Quality Recognition</h3></div>
-
-    <div class="card"><img src="Nex81.jpeg"><h3>Nex81</h3></div>
-
-    <div class="card"><img src="Nex8.jpeg"><h3>Nex8</h3></div>
-
-    <div class="card"><img src="Magazine prime.jpeg_ featured"><h3>Magazine Feature</h3></div>
-
-    <div class="card"><img src="Buniya Anthology.jpeg"><h3>Buniya Anthology</h3></div>
-
-    <div class="card"><img src="Bharatiya Youth FAce of India.jpeg"><h3>Bharatiya Youth Face of India</h3></div>
-
-    <div class="card"><img src="Author Pages.jpeg"><h3>Author Pages</h3></div>
+    <!-- DESTINY & DREAMS -->
+    <div class="card">
+      <img src="Destiny and Dreams- In between We.jpeg">
+      <h3>Destiny and Dreams - Inbetween We</h3>
+      <p>A poetic exploration of destiny, connection, and invisible human bonds.</p>
+      <a class="button" href="http://itunes.apple.com/us/book/id1440740127" target="_blank">Apple Books</a>
+    </div>
 
   </div>
 </section>
+
+<!-- LINKS (CLEAN) -->
+<section class="light">
+  <h2>All Links</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Left Untold</h3>
+      <a class="button" href="https://www.amazon.in/dp/B08LZMKK3M">Amazon India</a>
+    </div>
+
+    <div class="card">
+      <h3>Destiny & Dreams</h3>
+      <a class="button" href="http://itunes.apple.com/us/book/id1440740127">Apple Books</a>
+    </div>
+
+    <div class="card">
+      <h3>Featured Recognition</h3>
+      <a class="button" href="https://theindiasaga.com/saga-corner/lifetsyle/presstone-agency-presents-top-10-most-talented-indian-writers-you-need-to-know/" target="_blank">
+        Top Writers Feature
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+// scroll animation
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add("show");
+  });
+});
+
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
