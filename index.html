@@ -6,103 +6,185 @@
 <title>Vydehi Portfolio</title>
 
 <style>
+/* =====================
+   BASE
+===================== */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
-  color: #1a1a1a;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0a1222;
+  color: #e6e9f0;
+  scroll-behavior: smooth;
 }
 
-/* HEADER */
+/* =====================
+   HEADER (PREMIUM HERO)
+===================== */
 header {
-  background: #0b1f3a;
-  color: white;
+  background: linear-gradient(135deg, #0b1f3a, #081428);
   text-align: center;
-  padding: 50px 20px;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 60%);
+  animation: glowMove 8s infinite linear;
+}
+
+@keyframes glowMove {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 header h1 {
+  font-size: 48px;
   margin: 0;
-  font-size: 42px;
+  letter-spacing: 1px;
+  animation: fadeDown 1s ease;
 }
 
 header p {
   font-size: 18px;
-  margin-top: 8px;
-  opacity: 0.9;
+  opacity: 0.8;
+  margin-top: 10px;
+  animation: fadeDown 1.3s ease;
 }
 
-/* TABS NAVIGATION */
+/* =====================
+   NAVIGATION (STICKY TABS)
+===================== */
 nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   justify-content: center;
-  background: #0d2a52;
-  flex-wrap: wrap;
+  background: rgba(10, 18, 34, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 nav a {
-  color: white;
-  padding: 14px 20px;
+  padding: 14px 22px;
   text-decoration: none;
-  font-weight: bold;
+  color: #cfd8ff;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
 nav a:hover {
-  background: #123a73;
-  border-radius: 5px;
+  color: #ffffff;
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
 }
 
-/* SECTIONS */
+/* =====================
+   SECTIONS
+===================== */
 section {
-  padding: 50px 10%;
+  padding: 70px 12%;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s forwards;
 }
+
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.4s; }
+section:nth-child(4) { animation-delay: 0.6s; }
+section:nth-child(5) { animation-delay: 0.8s; }
 
 h2 {
-  color: #0b1f3a;
-  margin-bottom: 20px;
+  color: #9bbcff;
+  font-size: 26px;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
 }
 
-/* GRID */
+/* =====================
+   GRID + CARDS
+===================== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
 }
 
-/* CARD */
 .card {
-  background: white;
-  border-radius: 10px;
-  padding: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  overflow: hidden;
   text-align: center;
+  transition: 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  border-color: rgba(155,188,255,0.4);
 }
 
 .card img {
   width: 100%;
-  height: 230px;
+  height: 240px;
   object-fit: cover;
-  border-radius: 8px;
+  transition: 0.4s;
 }
 
-/* BUTTON */
-.button {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 12px;
-  background: #0d2a52;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
+.card:hover img {
+  transform: scale(1.05);
 }
 
-.button:hover {
-  background: #0b1f3a;
+.card h3 {
+  padding: 12px;
+  font-size: 16px;
+  color: #e6e9f0;
 }
 
-/* SMOOTH SCROLL */
-html {
-  scroll-behavior: smooth;
+/* =====================
+   TEXT
+===================== */
+p {
+  line-height: 1.7;
+  color: #cfd8ff;
+  font-size: 16px;
+}
+
+/* =====================
+   ANIMATIONS
+===================== */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  section {
+    padding: 50px 8%;
+  }
+
+  header h1 {
+    font-size: 34px;
+  }
 }
 </style>
 </head>
@@ -114,10 +196,10 @@ html {
   <p>Author | Storyteller | Dancer</p>
 </header>
 
-<!-- TABS -->
+<!-- NAV -->
 <nav>
   <a href="#about">About</a>
-  <a href="#books">Featured Books</a>
+  <a href="#books">Books</a>
   <a href="#identity">Identity</a>
   <a href="#awards">Awards</a>
 </nav>
@@ -126,9 +208,9 @@ html {
 <section id="about">
   <h2>About Me</h2>
   <p>
-    I am an author, storyteller, and dancer who expresses creativity through words, movement,
-    and imagination. My work reflects emotion, culture, and human connection, blending literature
-    with artistic expression.
+    I am an author, storyteller, and dancer who blends creativity, emotion, and expression.
+    My work reflects journeys of identity, imagination, and human connection through literature
+    and performing arts.
   </p>
 </section>
 
@@ -138,57 +220,26 @@ html {
 
   <div class="grid">
 
-    <div class="card">
-      <img src="images/Author Pages.jpeg">
-      <h3>Author Pages</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/Buniya Anthology.jpeg">
-      <h3>Buniya Anthology</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/Destiny and Dreams- In between We.jpeg">
-      <h3>Destiny & Dreams</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/Left Untold.jpeg">
-      <h3>Left Untold</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/Magazine prime.jpeg_ featured">
-      <h3>Magazine Prime Featured</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/Nex8.jpeg">
-      <h3>Nex8</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/Nex81.jpeg">
-      <h3>Nex81</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/Prime Quality.jpeg">
-      <h3>Prime Quality</h3>
-    </div>
+    <div class="card"><img src="images/Author Pages.jpeg"><h3>Author Pages</h3></div>
+    <div class="card"><img src="images/Buniya Anthology.jpeg"><h3>Buniya Anthology</h3></div>
+    <div class="card"><img src="images/Destiny and Dreams- In between We.jpeg"><h3>Destiny & Dreams</h3></div>
+    <div class="card"><img src="images/Left Untold.jpeg"><h3>Left Untold</h3></div>
+    <div class="card"><img src="images/Magazine prime.jpeg_ featured"><h3>Magazine Prime</h3></div>
+    <div class="card"><img src="images/Nex8.jpeg"><h3>Nex8</h3></div>
+    <div class="card"><img src="images/Nex81.jpeg"><h3>Nex81</h3></div>
+    <div class="card"><img src="images/Prime Quality.jpeg"><h3>Prime Quality</h3></div>
 
   </div>
 </section>
 
 <!-- IDENTITY -->
 <section id="identity">
-  <h2>My Writing Identity</h2>
+  <h2>Writing Identity</h2>
 
   <div class="grid">
     <div class="card">
       <img src="images/Logo.jpeg">
-      <h3>My Writing Logo</h3>
+      <h3>Official Writing Logo</h3>
     </div>
   </div>
 </section>
@@ -199,25 +250,10 @@ html {
 
   <div class="grid">
 
-    <div class="card">
-      <img src="images/Tagore award.jpeg">
-      <h3>Tagore Award</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/Sahityakosh Samman Awardee.jpeg">
-      <h3>Sahityakosh Samman</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/Bharatiya Youth FAce of India.jpeg">
-      <h3>Bharatiya Youth Face of India</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/Litfest.jpeg">
-      <h3>Litfest</h3>
-    </div>
+    <div class="card"><img src="images/Tagore award.jpeg"><h3>Tagore Award</h3></div>
+    <div class="card"><img src="images/Sahityakosh Samman Awardee.jpeg"><h3>Sahityakosh Samman</h3></div>
+    <div class="card"><img src="images/Bharatiya Youth FAce of India.jpeg"><h3>Bharatiya Youth Face</h3></div>
+    <div class="card"><img src="images/Litfest.jpeg"><h3>Litfest</h3></div>
 
   </div>
 </section>
