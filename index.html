@@ -3,173 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vydehi Paravada | Author Portfolio</title>
+<title>Vydehi Portfolio</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#faf7fc;color:#3d3152;line-height:1.6}
-header{
-background:linear-gradient(135deg,#6f42c1,#a67ad8);
-color:white;text-align:center;padding:60px 20px}
-header h1{font-size:54px}
-header h3{margin-top:10px;font-weight:normal}
-.tag{margin-top:20px;font-style:italic;font-size:22px}
-nav{
-display:flex;justify-content:center;flex-wrap:wrap;
-background:#5d3b8c;padding:12px}
-nav a{
-color:white;text-decoration:none;
-margin:6px;padding:10px 20px;
-background:#7f5ab5;border-radius:30px}
-nav a:hover{background:#d8b46a;color:#3d3152}
-section{
-margin:20px;
-padding:25px;
-background:white;
-border-radius:12px;
-box-shadow:0 2px 12px rgba(0,0,0,.08)}
-h2{
-background:#7f5ab5;
-color:white;
-padding:12px;
-border-radius:8px;
-margin-bottom:20px}
-.books,.awards,.media{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px}
-.card{
-background:#fcfbff;
-padding:18px;
-border:1px solid #eee;
-border-radius:10px;
-text-align:center}
-.placeholder{
-height:320px;
-background:#efe7f9;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:10px;
-color:#7f5ab5;
-font-weight:bold}
-.timeline li{margin:10px 0}
-footer{
-background:#5d3b8c;
-color:white;
-padding:30px;
-text-align:center;
-margin-top:30px}
-.button{
-display:inline-block;
-margin-top:15px;
-background:#d8b46a;
-color:#3d3152;
-padding:12px 20px;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f8ff;
+  color: #1f2d3d;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #0d47a1, #1976d2);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 42px;
+}
+
+header p {
+  font-size: 18px;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* Sections */
+section {
+  padding: 50px 15%;
+}
+
+h2 {
+  color: #0d47a1;
+  margin-bottom: 20px;
+}
+
+/* About */
+.about {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Buttons */
+a.button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #1976d2;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+a.button:hover {
+  background: #0d47a1;
+}
+
+/* Footer removed (Connect section removed as requested) */
+
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>Vydehi Paravada</h1>
-<h3>Award-winning Author • Storyteller • Literary Contributor</h3>
-<p class="tag">Stories in Words. Stories in Movement.</p>
+  <h1>Vydehi Paravada</h1>
+  <p>Author | Storyteller | Dancer</p>
 </header>
 
-<nav>
-<a href="#about">About</a>
-<a href="#books">Books</a>
-<a href="#journey">Literary Journey</a>
-<a href="#awards">Awards</a>
-<a href="#media">Featured In</a>
-<a href="#dance">Dance</a>
-<a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-<h2>About</h2>
-<p>My aims are motivated by my proactive style, multitudes of successes, and personal drive.
-My curiosity about the world and the culture around us inspired me to write,
-resulting in the publication of two novels,
-<b>Left Untold</b> and <b>Destiny and Dreams – In Between We</b>.
-Through literature and dance, I strive to tell stories that inspire,
-connect, and endure.</p>
+<!-- ABOUT -->
+<section>
+  <h2>About Me</h2>
+  <p class="about">
+    I am an author, storyteller, and dancer who believes in expressing emotions through words,
+    movement, and creativity. My journey blends literature and performing arts to create meaningful
+    experiences that inspire and connect people.
+  </p>
 </section>
 
-<section id="books">
-<h2>Featured Books</h2>
-<div class="books">
-<div class="card">
-<div class="placeholder">LEFT UNTOLD<br><br>Place Book Cover</div>
-<h3>Left Untold</h3>
-<p>A story of dreams, emotions and voices that deserve to be heard.</p>
-<a class="button" href="https://www.amazon.com/dp/1644296292">View Book</a>
-</div>
+<!-- FEATURED BOOKS -->
+<section>
+  <h2>Featured Books</h2>
+  <div class="grid">
 
-<div class="card">
-<div class="placeholder">DESTINY AND DREAMS<br><br>Place Book Cover</div>
-<h3>Destiny and Dreams – In Between We</h3>
-<p>A journey through destiny, hope and the invisible threads connecting lives.</p>
-<a class="button" href="https://www.flipkart.com/destiny-dreams-in-between/p/itmad287d30f650b?pid=RBKFWZXHHKWXFJ4V">View Book</a>
-</div>
-</div>
+    <div class="card">
+      <img src="images/book1.jpg" alt="Book 1">
+      <h3>Book Title 1</h3>
+      <a class="button" href="https://www.amazon.com" target="_blank">Buy on Amazon</a>
+    </div>
+
+    <div class="card">
+      <img src="images/book2.jpg" alt="Book 2">
+      <h3>Book Title 2</h3>
+      <a class="button" href="https://www.amazon.com" target="_blank">Buy on Amazon</a>
+    </div>
+
+  </div>
 </section>
 
-<section id="journey">
-<h2>Literary Journey</h2>
-<ul class="timeline">
-<li>📖 Publication of <b>Left Untold</b></li>
-<li>🏆 Author of the Year 2020</li>
-<li>🏆 Voice of Indian Literature</li>
-<li>🏆 Inspiring Author of the Year 2021</li>
-<li>🏆 Sahityakosh Samman Awardee 2021</li>
-<li>🏆 Tagore Commemorative Honouree</li>
-<li>🏆 India Prime Quality Education Awards Nominee</li>
-<li>📰 Featured in IINK Magazine, podcasts and literary platforms</li>
-<li>🌟 Featured among Top 10 Most Talented Indian Writers</li>
-</ul>
-</section>
+<!-- AWARDS -->
+<section>
+  <h2>Awards & Recognition</h2>
 
-<section id="awards">
-<h2>Awards & Recognition</h2>
-<div class="awards">
-<div class="card">Author of the Year 2020</div>
-<div class="card">Sahityakosh Samman Awardee 2021</div>
-<div class="card">Tagore Commemorative Honouree</div>
-<div class="card">Bharatiya Youth Face of India</div>
-<div class="card">Voice of Indian Literature</div>
-<div class="card">India Prime Quality Education Awards</div>
-</div>
-</section>
+  <div class="grid">
+    <div class="card">
+      <img src="images/award1.jpg" alt="Award 1">
+      <h3>Award 1</h3>
+    </div>
 
-<section id="media">
-<h2>Featured In</h2>
-<div class="media">
-<div class="card">The India Saga</div>
-<div class="card">IINK Magazine</div>
-<div class="card">Podcasts</div>
-<div class="card">Top 10 Most Talented Indian Writers</div>
-</div>
-</section>
+    <div class="card">
+      <img src="images/award2.jpg" alt="Award 2">
+      <h3>Award 2</h3>
+    </div>
 
-<section id="dance">
-<h2>Stories in Movement</h2>
-<p>Dance has always been an integral part of my life. Every performance is another
-way of telling a story—without words.</p>
+    <div class="card">
+      <img src="images/award3.jpg" alt="Award 3">
+      <h3>Award 3</h3>
+    </div>
+  </div>
 </section>
-
-<section id="contact">
-<h2>Connect</h2>
-<p>Email: vydehiparavada@gmail.com</p>
-<p>Instagram • LinkedIn • Amazon Author</p>
-</section>
-
-<footer>
-<p>© 2026 Vydehi Paravada</p>
-<p>Stories in Words. Stories in Movement.</p>
-</footer>
 
 </body>
 </html>
