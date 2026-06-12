@@ -9,16 +9,16 @@
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
-  background: #070f1e;
-  color: #e8ecf5;
+  background: #f4f7ff;
+  color: #1a1f2e;
   overflow-x: hidden;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero {
   text-align: center;
-  padding: 90px 20px;
-  background: radial-gradient(circle at top, #132a4a, #070f1e);
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #eaf1ff, #f4f7ff);
   position: relative;
 }
 
@@ -27,105 +27,92 @@ body {
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #7aa7ff;
-  margin-bottom: 15px;
-  animation: fadeDown 1s ease;
+  border: 3px solid #2f5cff;
+  margin-bottom: 10px;
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 44px;
   margin: 0;
-  position: relative;
+  color: #0b2a6f;
 }
 
 .hero h1::before {
   content: "VYDEHI PARAVADA";
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 45%;
   transform: translate(-50%, -50%);
-  font-size: 80px;
-  opacity: 0.08;
+  font-size: 70px;
+  opacity: 0.07;
   white-space: nowrap;
-  z-index: -1;
+  z-index: 0;
 }
 
 .hero p {
-  margin-top: 10px;
-  color: #9db7ff;
+  color: #355;
 }
 
-/* ================= NAV ================= */
+/* NAV */
 nav {
-  display: flex;
-  justify-content: center;
-  background: rgba(10, 18, 34, 0.9);
   position: sticky;
   top: 0;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: white;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #e6e9f5;
   z-index: 1000;
-  flex-wrap: wrap;
 }
 
 nav a {
   padding: 14px 20px;
   text-decoration: none;
-  color: #cdd9ff;
-  transition: 0.3s;
+  color: #1a2b4a;
+  font-weight: 500;
 }
 
 nav a:hover {
-  color: white;
-  background: rgba(122,167,255,0.15);
+  background: #eaf1ff;
   border-radius: 8px;
 }
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 section {
   padding: 70px 12%;
-  animation: fadeUp 1s ease forwards;
   opacity: 0;
   transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h2 {
-  color: #7aa7ff;
+  color: #0b2a6f;
   margin-bottom: 25px;
-  position: relative;
 }
 
-h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  margin-top: 8px;
-  background: linear-gradient(90deg, #7aa7ff, #ffd27a);
-  border-radius: 2px;
-}
-
-/* ================= GRID ================= */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 22px;
 }
 
-/* ================= CARD ================= */
+/* CARD */
 .card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(122,167,255,0.2);
-  border-radius: 14px;
+  background: white;
+  border-radius: 12px;
   overflow: hidden;
-  text-align: center;
-  transition: 0.4s;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
-  border-color: #7aa7ff;
+  transform: translateY(-6px);
 }
 
 .card img {
@@ -138,41 +125,58 @@ h2::after {
   padding: 10px;
 }
 
-/* ================= BUTTON ================= */
+/* BUTTON */
 .button {
   display: inline-block;
   margin-top: 10px;
   padding: 10px 14px;
-  background: #7aa7ff;
-  color: #0a1222;
+  background: #2f5cff;
+  color: white;
   text-decoration: none;
   border-radius: 6px;
-  font-weight: bold;
-  transition: 0.3s;
 }
 
 .button:hover {
-  background: #ffd27a;
+  background: #1c3fbf;
 }
 
-/* ================= ANIMATION ================= */
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
+/* MODAL (BOOK POPUP) */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
 }
 
-@keyframes fadeDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
 }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-  section {
-    padding: 50px 8%;
+.modal img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* SCROLL ANIMATION */
+@media (prefers-reduced-motion: no-preference) {
+  .fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
   }
-
-  .hero h1 {
-    font-size: 32px;
+  .fade.show {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
@@ -182,7 +186,7 @@ h2::after {
 
 <!-- HERO -->
 <div class="hero">
-  <img src="images/profile.jpeg" alt="Profile Image">
+  <img src="images/profile.jpeg">
   <h1>Vydehi Paravada</h1>
   <p>Author | Storyteller | Dancer</p>
 </div>
@@ -191,21 +195,21 @@ h2::after {
 <nav>
   <a href="#books">Featured Books</a>
   <a href="#booklinks">Book Links</a>
-  <a href="#awards">Awards & Recognition</a>
+  <a href="#awards">Awards</a>
 </nav>
 
 <!-- FEATURED BOOKS -->
-<section id="books">
+<section id="books" class="fade">
   <h2>Featured Books</h2>
 
   <div class="grid">
 
-    <div class="card">
+    <div class="card" onclick="openModal('Left Untold','images/Left Untold.jpeg')">
       <img src="images/Left Untold.jpeg">
       <h3>Left Untold</h3>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="openModal('Destiny & Dreams','images/Destiny and Dreams- In between We.jpeg')">
       <img src="images/Destiny and Dreams- In between We.jpeg">
       <h3>Destiny & Dreams</h3>
     </div>
@@ -214,7 +218,7 @@ h2::after {
 </section>
 
 <!-- BOOK LINKS -->
-<section id="booklinks">
+<section id="booklinks" class="fade">
   <h2>Book Links (Amazon)</h2>
 
   <div class="grid">
@@ -233,7 +237,7 @@ h2::after {
 </section>
 
 <!-- AWARDS -->
-<section id="awards">
+<section id="awards" class="fade">
   <h2>Awards & Recognition</h2>
 
   <div class="grid">
@@ -242,7 +246,7 @@ h2::after {
     <div class="card"><img src="images/Bharatiya Youth FAce of India.jpeg"><h3>Bharatiya Youth Face</h3></div>
     <div class="card"><img src="images/Buniya Anthology.jpeg"><h3>Buniya Anthology</h3></div>
     <div class="card"><img src="images/Litfest.jpeg"><h3>Litfest</h3></div>
-    <div class="card"><img src="images/Logo.jpeg"><h3>Writing Logo</h3></div>
+    <div class="card"><img src="images/Logo.jpeg"><h3>Logo</h3></div>
     <div class="card"><img src="images/Magazine prime.jpeg_ featured"><h3>Magazine Feature</h3></div>
     <div class="card"><img src="images/Nex8.jpeg"><h3>Nex8</h3></div>
     <div class="card"><img src="images/Nex81.jpeg"><h3>Nex81</h3></div>
@@ -252,6 +256,39 @@ h2::after {
 
   </div>
 </section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <img id="modalImg">
+    <h3 id="modalTitle"></h3>
+    <button class="button" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<script>
+// scroll animation
+const sections = document.querySelectorAll(".fade");
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      sec.classList.add("show");
+    }
+  });
+});
+
+// modal
+function openModal(title, img) {
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalImg").src = img;
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+</script>
 
 </body>
 </html>
