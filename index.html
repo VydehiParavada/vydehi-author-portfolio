@@ -5,22 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vydehi Portfolio</title>
 
+<!-- AOS ANIMATION -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <style>
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
   background: #f4f7ff;
   scroll-behavior: smooth;
-  animation: fadeIn 1s ease-in;
 }
 
-/* ANIMATION */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* NAV TABS */
+/* NAV */
 nav {
   position: sticky;
   top: 0;
@@ -35,7 +32,6 @@ nav a {
   color: white;
   text-decoration: none;
   transition: 0.3s;
-  font-size: 14px;
 }
 
 nav a:hover {
@@ -46,8 +42,8 @@ nav a:hover {
 /* HERO */
 .hero {
   text-align: center;
-  padding: 90px 20px;
-  background: linear-gradient(135deg, #081428, #0b2a6f);
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #061022, #0b2a6f);
   color: white;
   position: relative;
   overflow: hidden;
@@ -59,11 +55,11 @@ nav a:hover {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 420px;
-  height: 420px;
+  width: 520px;
+  height: 520px;
   background: url("Logo.jpeg") no-repeat center;
   background-size: contain;
-  opacity: 0.12;
+  opacity: 0.18;
   transform: translate(-50%, -50%);
   animation: floatLogo 6s ease-in-out infinite;
 }
@@ -88,8 +84,7 @@ nav a:hover {
 
 /* SECTIONS */
 section {
-  padding: 70px 12%;
-  animation: fadeIn 1s ease-in;
+  padding: 50px 10%;
 }
 
 .light { background: #f4f7ff; }
@@ -99,7 +94,7 @@ section {
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+  gap: 20px;
 }
 
 /* CARD */
@@ -109,7 +104,7 @@ section {
   overflow: hidden;
   text-align: center;
   box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-  transition: 0.4s ease;
+  transition: 0.4s;
 }
 
 .dark .card {
@@ -125,7 +120,7 @@ section {
 /* IMAGE */
 .card img {
   width: 100%;
-  height: 320px;
+  height: 300px;
   object-fit: contain;
   background: white;
   padding: 10px;
@@ -143,11 +138,10 @@ section {
   margin: 5px 0;
   color: #2f5cff;
   text-decoration: none;
-  transition: 0.3s;
 }
 
 .link-group a:hover {
-  text-shadow: 0 0 8px #4da3ff;
+  text-shadow: 0 0 6px #4da3ff;
   transform: translateX(3px);
 }
 
@@ -155,21 +149,15 @@ section {
 .featured {
   background: #ffffff;
   border-left: 5px solid #2f5cff;
-  padding: 20px;
+  padding: 18px;
   border-radius: 10px;
-  margin-bottom: 40px;
-  transition: 0.3s;
-}
-
-.featured:hover {
-  box-shadow: 0 0 18px rgba(47,92,255,0.4);
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV TABS -->
+<!-- NAV -->
 <nav>
   <a href="#about">About</a>
   <a href="#featured">Featured</a>
@@ -178,13 +166,13 @@ section {
 </nav>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero" data-aos="fade-down">
   <h1>Vydehi Paravada</h1>
   <p class="tagline">Stories in words. Stories in movement.</p>
 </div>
 
 <!-- ABOUT -->
-<section id="about" class="light">
+<section id="about" class="light" data-aos="fade-up">
   <h2>About Me</h2>
   <p>
     I am an author and storyteller who expresses creativity through writing and imagination.
@@ -193,7 +181,7 @@ section {
 </section>
 
 <!-- FEATURED -->
-<section id="featured" class="light">
+<section id="featured" class="light" data-aos="fade-up">
   <div class="featured">
     🌟 Featured Recognition:  
     <a href="https://theindiasaga.com/saga-corner/lifetsyle/presstone-agency-presents-top-10-most-talented-indian-writers-you-need-to-know/" target="_blank">
@@ -204,34 +192,40 @@ section {
 
 <!-- BOOKS -->
 <section id="books" class="dark">
-  <h2>Featured Books</h2>
+  <h2 data-aos="fade-up">Featured Books</h2>
 
-  <div class="grid">
+  <div class="grid" data-aos="zoom-in-up">
 
-    <!-- BOOK 1 -->
-    <div class="card">
+    <!-- LEFT UNTOLD -->
+    <div class="card" data-aos="fade-up">
       <img src="Left Untold.jpeg">
       <h3>Left Untold</h3>
-      <p>A deeply emotional narrative exploring silence, heartbreak, and unspoken human connections.</p>
+      <p>Emotional journey of silence, heartbreak, identity.</p>
 
       <div class="link-group">
-        <b>Amazon:</b>
-        <a href="https://www.amazon.com/dp/1644296292" target="_blank">US Amazon Link</a>
+        <b>Amazon US:</b>
+        <a href="https://www.amazon.com/dp/1644296292" target="_blank">Link</a>
+
+        <b>Amazon India:</b>
+        <a href="https://www.amazon.in/Left-Untold-Vydehi-Paravada/dp/1644296292" target="_blank">Link</a>
 
         <b>Apple Books:</b>
-        <a href="#" target="_blank">Coming Soon</a>
+        <a href="http://itunes.apple.com/us/book/id1440740127" target="_blank">Link</a>
       </div>
     </div>
 
-    <!-- BOOK 2 -->
-    <div class="card">
+    <!-- DESTINY -->
+    <div class="card" data-aos="fade-up">
       <img src="Destiny and Dreams- In between We.jpeg">
       <h3>Destiny and Dreams - Inbetween We</h3>
-      <p>A poetic reflection of destiny, connection, and invisible bonds shaping human lives.</p>
+      <p>Poetic reflection of destiny and connection.</p>
 
       <div class="link-group">
         <b>Amazon:</b>
-        <a href="http://www.amazon.in/dp/B08LZMKK3M" target="_blank">India Amazon Link</a>
+        <a href="http://www.amazon.in/dp/B08LZMKK3M" target="_blank">Link</a>
+
+        <b>Flipkart:</b>
+        <a href="https://www.flipkart.com/destiny-dreams-in-between/p/itmad287d30f650b" target="_blank">Link</a>
       </div>
     </div>
 
@@ -240,23 +234,35 @@ section {
 
 <!-- AWARDS -->
 <section id="awards" class="light">
-  <h2>Awards & Recognition</h2>
+  <h2 data-aos="fade-up">Awards & Recognition</h2>
 
-  <div class="grid">
+  <div class="grid" data-aos="zoom-in-up">
 
-    <div class="card"><img src="Tagore award.jpeg"><h3>Tagore Commemorative Honouree</h3></div>
-    <div class="card"><img src="Sahityakosh Samman Awardee.jpeg"><h3>Sahityakosh Samman Awardee</h3></div>
-    <div class="card"><img src="Prime Quality.jpeg"><h3>Prime Quality Education Awardee</h3></div>
-    <div class="card"><img src="Nex81.jpeg"><h3>Author of Litfest by ne8x_official</h3></div>
-    <div class="card"><img src="Nex8.jpeg"><h3>Literature Contribution Awardee by Litfest</h3></div>
-    <div class="card"><img src="Magazine prime.jpeg_ featured"><h3>Author Pages Magazine Feature</h3></div>
-    <div class="card"><img src="Litfest.jpeg"><h3>Litfest</h3></div>
-    <div class="card"><img src="Buniya Anthology.jpeg"><h3>Buniya Anthology</h3></div>
-    <div class="card"><img src="Bharatiya Youth FAce of India.jpeg"><h3>Bharatiya Youth Face of India</h3></div>
-    <div class="card"><img src="Author Pages.jpeg"><h3>Author Pages Magazine Feature</h3></div>
+    <div class="card" data-aos="flip-up">
+      <img src="Voice of Indian Literature.jpeg">
+      <h3>Voice of Indian Literature Award</h3>
+    </div>
+
+    <div class="card" data-aos="flip-up"><img src="Tagore award.jpeg"><h3>Tagore Commemorative Honouree</h3></div>
+    <div class="card" data-aos="flip-up"><img src="Sahityakosh Samman Awardee.jpeg"><h3>Sahityakosh Samman Awardee</h3></div>
+    <div class="card" data-aos="flip-up"><img src="Prime Quality.jpeg"><h3>Prime Quality Education Awardee</h3></div>
+    <div class="card" data-aos="flip-up"><img src="Nex81.jpeg"><h3>Author of Litfest by ne8x_official</h3></div>
+    <div class="card" data-aos="flip-up"><img src="Nex8.jpeg"><h3>Literature Contribution Awardee</h3></div>
+    <div class="card" data-aos="flip-up"><img src="Magazine prime.jpeg_ featured"><h3>Author Pages Magazine Feature</h3></div>
+    <div class="card" data-aos="flip-up"><img src="Litfest.jpeg"><h3>Litfest Recognition</h3></div>
+    <div class="card" data-aos="flip-up"><img src="Buniya Anthology.jpeg"><h3>Buniya Anthology</h3></div>
+    <div class="card" data-aos="flip-up"><img src="Bharatiya Youth FAce of India.jpeg"><h3>Bharatiya Youth Face of India</h3></div>
 
   </div>
 </section>
+
+<!-- INIT AOS -->
+<script>
+  AOS.init({
+    duration: 900,
+    once: true
+  });
+</script>
 
 </body>
 </html>
